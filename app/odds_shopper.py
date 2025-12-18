@@ -47,7 +47,6 @@ def process_odds(lines, type="totals"):
                 bet_two_odds = book_lines[1]['price']
 
                 if type != "ml":
-                    print(book_lines[0])
                     bet_one_line = book_lines[0]['point']
                     bet_two_line = book_lines[1]['point']
 
@@ -124,19 +123,12 @@ def get_in_season_sports():
 
     data = response.json()
 
-    sports = [x['key'] for x in data]
+    sports = [{"key": s["key"], "title": s["title"]} for s in data if s.get("active")]
 
     return sports
 
 
-def user_selection_odds():
-    in_season_sports = get_in_season_sports()
-    print(in_season_sports)
-    selection = input("Please input user sport:")
-    
-    if selection not in in_season_sports:
-        print("Error: Sport is not in season")
-    #sportsbook_selection = input("sportsbook_selection")
+def get_sport_odds(selection="americanfootball)_nfl"):
 
     totals_odds = get_odds(sport = selection, markets = "totals")
     spreads_odds = get_odds(sport = selection, markets = "spreads")
@@ -186,7 +178,3 @@ def user_selection_odds():
         how="left",
     )
     return game_lines
-
-
-df = user_selection_odds()
-print(df)
