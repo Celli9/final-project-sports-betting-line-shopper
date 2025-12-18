@@ -1,0 +1,11 @@
+#Betting Lines
+requests
+pandas
+python-dotenv
+
+#Web App
+flask
+gunicorn
+
+#testing
+pytest
