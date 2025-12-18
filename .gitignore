@@ -1,1 +1,5 @@
 .env
+
+#clutter
+.pytest_cache
+__pycache__

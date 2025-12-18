@@ -3,3 +3,9 @@ This final project allows you to shop for the best sports betting lines using th
 
 Api Key:
 - THE_ODDS_API is saved in the .env file
+
+# install requirements
+pip install -r requirements.txt
+
+# run website
+FLASK_APP=web_app flask run
